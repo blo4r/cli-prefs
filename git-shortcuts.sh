@@ -1,4 +1,4 @@
-alias gs='git status'
+alias gs='git status -sb'
 alias ts='tig status'
 
 alias gaa='git add -A'
@@ -10,15 +10,14 @@ alias go='git checkout'
 alias gd='git diff'
 alias gdw='git diff --color-words'
 
-alias gl='git log --graph --decorate --all'
+alias gl='git log --oneline --graph --decorate'
+alias gla='git log --graph --decorate --all'
 alias glog='git log --graph --oneline --all --decorate'
 alias glogo='glog `git reflog | cut -c1-7`'
 alias glago="git log --graph --all --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset'"
 
 alias gpu='git push'
 alias gp='git pull --ff-only'
-alias gpl='git pull'
-alias gpm='git pull'
 alias gpr='git pull --rebase'
 alias gprgp='gpr && gpu'
 
@@ -51,7 +50,7 @@ alias gf='git diff --numstat'
 
 function ghelp {
   cat << EOF
-    gs        git status
+    gs        git status -sb
     ts        tig status
 
     gaa       git add -A
@@ -63,15 +62,14 @@ function ghelp {
     gd        git diff
     gdw       git diff --color-words
 
-    gl        git log --graph --decorate --all
+    gl        git log --oneline --graph --decorate
+    gla       git log --graph --decorate --all
     glog      git log --graph --oneline --all --decorate
     glogo     glog \`git reflog | cut -c1-7\`
     glago     git log --graph --all --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset'
 
     gpu       git push
     gp        git pull --ff-only
-    gpl       git pull
-    gpm       git pull
     gpr       git pull --rebase
     gprgp     gpr && gpu
 
@@ -90,7 +88,6 @@ function ghelp {
     gst       git stash
     gstp      git stash pop
     gstl      git stash list
-
 
     gstpr     gst && gpr && gstp
     grl       gru && gl
